@@ -5,6 +5,7 @@ const createError = require('http-errors');
 const  urlencoded  = require('express');
 var path = require('path');
 const ClientRouter = require('./routes/Client.js')
+const RDVRouter = require('./routes/RDV.js')
 
 
 
@@ -17,6 +18,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended:false}))
 
  app.use('/client',ClientRouter);
+ app.use('/RDV',RDVRouter);
+
 
 
 
