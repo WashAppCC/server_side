@@ -2,10 +2,9 @@ const express = require("express");
 const router = express.Router();
 var Client = require("../models/Client.js");
 const schema = require('../utils/clientValidation.js');
-const multer = require('../utils/multer.js');
 
 /** add client */
-router.post('/add_client', multer.single('photo'), validateClientInputs, add_client);
+router.post('/add_client',  validateClientInputs, add_client);
 
 
 async function add_client(req, res) {
@@ -17,7 +16,6 @@ async function add_client(req, res) {
       fullname,
       email,
       telephone,
-      photo: req.file.path
     });
 
     /** Save the professeur object to the database*/
